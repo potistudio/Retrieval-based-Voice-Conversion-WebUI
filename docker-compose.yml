@@ -3,7 +3,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    shm_size: "16g"
     container_name: rvc
+    tty: true
+    stdin_open: true
     volumes:
       - ./weights:/app/assets/weights
       - ./opt:/app/opt

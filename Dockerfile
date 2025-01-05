@@ -32,6 +32,7 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
 RUN python -m pip install --upgrade "pip<24.1"
 RUN python -m pip install setuptools
 RUN python -m pip install -r requirements.txt
+RUN python -m pip install --upgrade "matplotlib<3.10"
 
 RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/pretrained_v2/D48k.pth -d assets/pretrained_v2/ -o D48k.pth
 RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/lj1995/VoiceConversionWebUI/resolve/main/pretrained_v2/G48k.pth -d assets/pretrained_v2/ -o G48k.pth
